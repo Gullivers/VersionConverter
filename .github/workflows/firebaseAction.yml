@@ -5,8 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1 # This is optional on linux and macOS
-        with: "14.18.0"
+      - uses: actions/setup-node@v3
+        with: 14.18.0
           node-version: 
       - uses: pocket-apps/action-setup-firebase@v2
         with:
