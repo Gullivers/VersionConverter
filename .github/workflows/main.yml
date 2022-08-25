@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Change version
         id: change_version
-        uses: octocat/hello-world-javascript-action@v1.1
+        uses: Gullivers/VersionConverter
         with:
           version: 'Mona the Octocat'
       # Use the output from the `hello` step
