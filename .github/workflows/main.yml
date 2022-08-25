@@ -16,4 +16,4 @@ jobs:
           version: "1.0001"
       # Use the output from the `hello` step
       - name: Get the output versioning
-        run: echo "New version is... ${{ steps.versioning.outputs.time }}"
+        run: echo "New version is... ${{ steps.versioning.outputs.new-version }}"
