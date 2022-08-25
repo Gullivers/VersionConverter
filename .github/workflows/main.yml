@@ -1,0 +1,15 @@
+on: [workflow_dispatch]
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: Version Test
+    steps:
+      - name: Change version
+        id: change_version
+        uses: octocat/hello-world-javascript-action@v1.1
+        with:
+          version: 'Mona the Octocat'
+      # Use the output from the `hello` step
+      - name: Get the output time
+        run: echo "New version is... ${{ steps.change_version.outputs.new-version }}"
