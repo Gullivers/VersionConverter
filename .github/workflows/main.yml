@@ -1,15 +1,19 @@
-on: [workflow_dispatch]
+on: [workflow-dispatch]
 
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
     name: Version Test
     steps:
-      - name: Change version
-        id: change_version
-        uses: Gullivers/VersionConverter
+      # To use this repository's private action,
+      # you must check out the repository
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Version action step
+        uses: ./ # Uses an action in the root directory
+        id: versioning
         with:
-          version: 'Mona the Octocat'
+          who-to-greet: "1.0001"
       # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "New version is... ${{ steps.change_version.outputs.new-version }}"
+      - name: Get the output versioning
+        run: echo "New version is... ${{ steps.versioning.outputs.time }}"
