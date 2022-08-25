@@ -11,7 +11,7 @@ try {
         versionWithoutZeros += char;
     }
   }
-  const output = str + "-v" + versionWithoutZeros;
+  const output = fetchedVersion + "-v" + versionWithoutZeros;
   console.log("new version is: " + output);
   core.setOutput("new-version", output);
   // Get the JSON webhook payload for the event that triggered the workflow
