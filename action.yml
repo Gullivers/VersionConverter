@@ -1,0 +1,13 @@
+name: 'Hello World'
+description: 'Convert 1.001 version to 1.0001-v11 without zeros'
+inputs:
+  version:  # id of version to convert
+    description: 'What to convert'
+    required: true
+    default: '1.0001-v11'
+outputs:
+  new-version: # id of converted version
+    description: 'New converted version'
+runs:
+  using: 'node16'
+  main: 'index.js'
