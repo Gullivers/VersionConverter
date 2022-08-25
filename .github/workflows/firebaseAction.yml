@@ -1,0 +1,13 @@
+on: [workflow_dispatch]
+
+jobs:
+  symbols-upload:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1 # This is optional on linux and macOS
+      - uses: pocket-apps/action-setup-firebase@v2
+        with:
+          firebase-token: FIREBASE_TOKEN
+      - name: Upload Symbols
+        run: firebase crashlytics:symbols:upload --app=${{ secrets.FIREBASE_APP_ID }} ${{ format('{0}/Android.symbols.zip', github.workspace) }}
